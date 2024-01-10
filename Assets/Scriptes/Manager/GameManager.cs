@@ -40,9 +40,10 @@ public class GameManager : SingleTon<GameManager>
     private int playScore;                      // 총 점수
     private float playTime;                     // 플레이 타임
 
-    // 최대 플레이 타임        = 5 * 60초 = 5분;
-    public float maxPlayTime = 5 * 60f;         // 최대 플레이 타임
+    //// 최대 플레이 타임        = 5 * 60초 = 5분;
+    //public float maxPlayTime = 5 * 60f;         // 최대 플레이 타임
     public RankScore rankScore;
+
 
     // 인게임 시작 여부
     public bool IsStart
@@ -56,6 +57,7 @@ public class GameManager : SingleTon<GameManager>
                 playerObj = Instantiate(playerPrefab, Vector2.zero, Quaternion.identity);
                 player = playerObj.GetComponent<Player>();
                 RecordInfoManager.instance.levelUp.ShowLevelUpWindow(true);
+                Init();
             }
             else if (!isStart)
             {
@@ -96,12 +98,14 @@ public class GameManager : SingleTon<GameManager>
                 Coin = RecordInfoManager.instance.ReCoin;
                 PlayTime = RecordInfoManager.instance.ReTime;
                 MonsterKillCount = RecordInfoManager.instance.ReMonsterKillCount;
+
                 // 클리어 씬 활성화
                 RecordInfoManager.instance.overWindow.gameObject.SetActive(true);
                 RecordInfoManager.instance.overWindow.SetResultWindow(RecordInfoManager.instance);
                 playerName = RecordInfoManager.instance.overWindow.playerName.text;
+
                 // 랭크판 생성
-                MainCanvasManager.instance.rankManager.Record();
+                //MainCanvasManager.instance.rankManager.Record();
             }
             else if (!isEnd)
             {
@@ -130,7 +134,7 @@ public class GameManager : SingleTon<GameManager>
                 playerName = RecordInfoManager.instance.clearWindow.playerName.text;
                 
                 // 랭크판 생성
-                MainCanvasManager.instance.rankManager.Record();
+                //MainCanvasManager.instance.rankManager.Record();
             }
             else if (!IsClear)
             {
@@ -159,10 +163,10 @@ public class GameManager : SingleTon<GameManager>
    
     void Start()
     {
-        Init();
+        FristInit();
     }
 
-    public void Init()  // 초기화
+    public void FristInit()  // 게임 실행 후 단 1번 초기화
     {
         playScore = 0;
         playCoin = Coin;
@@ -174,7 +178,19 @@ public class GameManager : SingleTon<GameManager>
         IsClear = false;
         IsStart = false;
         IsLive = true;
-        playerName = null;
+    }
+
+    public void Init()  // 게임 씬으로 들어갈 때마다 초기화
+    {
+        playScore = 0;
+        playCoin = Coin;
+        playTime = 0;
+        MonsterKillCount = 0;
+        Exp = 0;
+        playerLevel = 0;
+        IsEnd = false;
+        IsClear = false;
+        IsLive = true;
     }
 
     public void UpExp()

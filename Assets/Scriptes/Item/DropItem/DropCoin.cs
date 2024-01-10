@@ -14,7 +14,7 @@ public class DropCoin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<Player>(out var player))
+        if (collision.TryGetComponent<CircleCollider2D>(out var player))
         {
             SoundManager.instance.Play(getSound, SoundManager.instance.transform);
             RecordInfoManager.instance.ReCoin += coin;

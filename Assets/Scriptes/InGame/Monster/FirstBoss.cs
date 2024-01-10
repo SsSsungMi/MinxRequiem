@@ -61,8 +61,13 @@ public class FirstBoss : Enemy, IHitable, IDeadable
 
     public override void Dead()
     {
-        base.Dead();
+        RecordInfoManager.instance.ReScore += score;
+        RecordInfoManager.instance.ReMonsterKillCount++;
+        SoundManager.instance.Play(monsterHitClip, SoundManager.instance.transform);
+        this.gameObject.SetActive(false);
+
+        RecordInfoManager.instance.clearPopUpWindow.SetActive(true);
+        GameManager.instance.IsLive = false;
         SoundManager.instance.Play(ClearClip, SoundManager.instance.transform);
-        GameManager.instance.IsClear = true;
     }
 }

@@ -22,8 +22,7 @@ public class PlayerEffectDamage : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.TryGetComponent<IHitable>(out var mon)
-                && !collision.collider.GetComponent<Player>())
+        if (collision.collider.TryGetComponent<IHitable>(out var mon))
         {
             mon.Hit(curItem.curDamage);
         }
@@ -31,8 +30,7 @@ public class PlayerEffectDamage : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<IHitable>(out var mon)
-                && !collision.GetComponent<Player>())
+        if (collision.TryGetComponent<IHitable>(out var mon))
         {
             mon.Hit(curItem.curDamage);
         }

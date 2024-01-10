@@ -44,7 +44,7 @@ public class MonstarSpawner : MonoBehaviour
     void Update()
     {
         spawnTimer += Time.deltaTime;
-        spawnLevel = Mathf.Min(Mathf.FloorToInt(RecordInfoManager.instance.ReTime / 30f), spawnDatas.Length -1);
+        spawnLevel = Mathf.Min(Mathf.FloorToInt(RecordInfoManager.instance.ReTime / 60f), spawnDatas.Length -1);
 
         // 초기화 시간 >  레벨에 따라서 . 데이터의 소환 시간과 소환오브젝트가 조절이 된다.
         if (spawnTimer > spawnDatas[spawnLevel].spwanTime)

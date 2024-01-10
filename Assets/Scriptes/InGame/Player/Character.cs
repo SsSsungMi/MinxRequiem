@@ -2,10 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 // 플레이어의 기본 속성---------------------------------
 [System.Serializable]
@@ -55,7 +52,6 @@ public abstract class Character : MonoBehaviour, IHitable, IDeadable
             {
                 status.hp = status.minHp;
                 Dead();
-                GameManager.instance.IsEnd = true;
             }
         }
     }
@@ -101,9 +97,7 @@ public abstract class Character : MonoBehaviour, IHitable, IDeadable
         //hitAniTimer = 0.1f;                             // 코루틴의 맞는 대기시간
         rigid = GetComponent<Rigidbody2D>();
         //hitAniDelay = new WaitForSeconds(hitAniTimer);  // 코루틴에 바로 적용 가능한 맞는 대기시간
-        
     }
-
 
     protected void OnMove(InputValue value)
     {
@@ -147,5 +141,6 @@ public abstract class Character : MonoBehaviour, IHitable, IDeadable
     public virtual void Dead()
     {
         status.speed = 0;
+        GameManager.instance.IsEnd = true;
     }
 }

@@ -27,8 +27,9 @@ public class Player : Character, IHitable, IDeadable
     Image hpBarSprite;
 
     public float recoverHp = 0.1f;
-    public AudioClip deadSound;    // 버튼 효과음
+    public AudioClip deadSound;    // GameOver 효과음
     public GameObject hitEffect;
+    public CircleCollider2D magnetismArea;
 
     private new void Start()
     {
@@ -63,15 +64,14 @@ public class Player : Character, IHitable, IDeadable
 
     void Update()
     {
-        if(GameManager.instance.IsEnd == false)
+        if (GameManager.instance.IsEnd == false)
+        {
             Hp += recoverHp * Time.deltaTime;
+        }
     }
 
     private void FixedUpdate()
     {
-        if (!GameManager.instance.IsLive)
-            return;
-
         FixedMove();
 
         if (inputVec.x == 0f && inputVec.y == 0f)
@@ -92,8 +92,8 @@ public class Player : Character, IHitable, IDeadable
     public override void Dead()
     {
         base.Dead();
-        GameManager.instance.IsStart = false;   // 시간 증가를 멈춤
+        RecordInfoManager.instance.overPopUpWindow.SetActive(true);
+        GameManager.instance.IsLive = false;
         SoundManager.instance.Play(deadSound, SoundManager.instance.transform);
-        GameManager.instance.IsEnd = true;
     }
 }

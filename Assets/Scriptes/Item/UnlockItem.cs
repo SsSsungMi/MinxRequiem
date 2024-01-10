@@ -37,17 +37,4 @@ public class UnlockItem : MonoBehaviour
             }
         }
     }
-
-    public void UnLock(SpecialItem findItem)
-    {
-        for (int i = 0; i < baseItemList.Count; i++)
-        {
-            if (findItem.itemName == baseItemList[i].GetComponent<Item>().itemName)
-            {
-                baseItemList[i].GetComponent<Image>().raycastTarget = true;
-                baseItemList[i].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = findItem.image;
-                baseItemList[i].transform.GetChild(1).gameObject.SetActive(false);
-            }
-        }
-    }
 }

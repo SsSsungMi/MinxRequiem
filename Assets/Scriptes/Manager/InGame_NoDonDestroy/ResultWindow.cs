@@ -19,18 +19,22 @@ public class ResultWindow : MonoBehaviour
 
     public void SetResultWindow(RecordInfoManager rm)
     {
-        result.text = "총 점수 : " + rm.ReScore.ToString("000");
+        result.text = string.Format("총 점수 : " + "{0:N3}", rm.ReScore.ToString());
         monsterKillCount.text = "처치한 몬스터 : " + rm.ReMonsterKillCount.ToString();
         playTime.text = "플레이 시간 : " + rm.ReTime.ToString("00:00");
+
     }
 
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Return))
         {
-            printPlayerName.text = "이름 : " + playerName.text;
-            GameManager.playerName = printPlayerName.text;
+            printPlayerName.text = "" + playerName.text;
+            string text = printPlayerName.text;
+            GameManager.playerName = text;
             Destroy(namePlace);
+            
+            MainCanvasManager.instance.rankManager.Record();
         }
     }
 }

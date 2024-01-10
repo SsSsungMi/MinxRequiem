@@ -13,7 +13,11 @@ public enum BTN_TYPE
     START,
     END,
     THEEND_TO_MAIN,
-    CHARACTERSELECT
+    CHARACTERSELECT,
+    OVERPOPUPWINDOW,
+    CLEARPOPUPWINDOW,
+    OUTGAME,
+    RETURNGAME
 }
 
 // Scripte Desc:
@@ -32,6 +36,7 @@ public class SetButton : MonoBehaviour
     {
         cam = MainCanvasManager.instance.camPointManager;
         btn = GetComponent<Button>();
+        
         switch(type)
         {
             case BTN_TYPE.MAIN:
@@ -61,9 +66,39 @@ public class SetButton : MonoBehaviour
                 cam.UiCamPointMove(0);
                 break;
             case BTN_TYPE.CHARACTERSELECT:
-                
+                btn.onClick.AddListener(ShowCharacterSelectParticle);
+                SoundManager.instance.Play(sfxs, SoundManager.instance.transform);
+                break;
+            case BTN_TYPE.OVERPOPUPWINDOW:
+                btn.onClick.AddListener(OverPopUpWindow);
+                SoundManager.instance.Play(sfxs, SoundManager.instance.transform);
+                break;
+            case BTN_TYPE.CLEARPOPUPWINDOW:
+                btn.onClick.AddListener(ClearPopUpWindow);
+                SoundManager.instance.Play(sfxs, SoundManager.instance.transform);
+                break;
+            case BTN_TYPE.OUTGAME:
+                btn.onClick.AddListener(SceneUIManager.instance.CallMain);
+                SoundManager.instance.Play(sfxs, SoundManager.instance.transform);
+                btn.onClick.AddListener(OutGame);
+                break;
+            case BTN_TYPE.RETURNGAME:
+                btn.onClick.AddListener(ReturnGame);
+                SoundManager.instance.Play(sfxs, SoundManager.instance.transform);
                 break;
         }
+    }
+
+    public void OutGame()
+    {
+        cam.UiCamPointMove(0);
+        GameManager.instance.IsLive = true;
+    }
+
+    public void ReturnGame()
+    {
+        RecordInfoManager.instance.outScene.gameObject.SetActive(false);
+        GameManager.instance.IsLive = true;
     }
 
     public void YellowSkin()
@@ -80,11 +115,33 @@ public class SetButton : MonoBehaviour
     public void StartGame()
     {
         GameManager.instance.IsStart = true;
+        GameManager.instance.IsEnd = false;
+
         btn.gameObject.SetActive(false);
     }
 
     public void ShowCharacterSelectParticle()
     {
-        choiceParticle.SetActive(true);
+        this.choiceParticle.SetActive(true);
+        StartCoroutine(GreenColorCo());
+    }
+
+    IEnumerator GreenColorCo()
+    {
+        btn.GetComponent<Image>().color = Color.green;
+        yield return new WaitForSeconds(10);
+        btn.GetComponent<Image>().color = Color.white;
+    }
+    public void OverPopUpWindow()
+    {
+        RecordInfoManager.instance.overPopUpWindow.SetActive(false);
+        GameManager.instance.IsLive = true;
+        GameManager.instance.IsEnd = true;
+    }
+    public void ClearPopUpWindow()
+    {
+        RecordInfoManager.instance.clearPopUpWindow.SetActive(false);
+        GameManager.instance.IsLive = true;
+        GameManager.instance.IsClear = true;
     }
 }

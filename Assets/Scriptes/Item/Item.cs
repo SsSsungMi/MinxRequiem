@@ -20,6 +20,12 @@ using UnityEngine;
 // Speed      = 헤르메스의 신발 = 쾌속질주         = 기분이 좋아져서 달리는 속도가 빨라진다.
 // Magnetism  = 자기장 보석     = 욕망의 주문      = 더 넓은 범위의 아이템을 흡수한다.
 
+//// 추가 아이템 ----------------------------------------------------------
+//// GoldCoin = 골드 코인 = 운 테스트 = ! 당신의 운을 실험해보세요 ! 1000원 이내의 금액을 받을 수 있습니다.
+//// HpMeat = 묵직한 고기 = 美味한 맛! = Hp 를 30만큼 회복한다.
+//// ---------------------------------------------------------------
+//// 모든 아이템이 찬 뒤 레벨업이 끝까지 올라간 아이템이 있다면 2가지 타입중 하나가 등장합니다.
+
 // Scripte Desc:
 // 게임 내의 공격과 패시브 아이템을 모두 관장하는 스크립트 입니다.
 // 아이템은 자신의 속성들을 가진 상태이며,
@@ -80,13 +86,14 @@ public class Item : MonoBehaviour
     }
     public float maxScale;
 
+    public Coroutine curCo;
+
     public void Awake()
     {
         curScale = 1f;
-        maxScale = 3f;
+        maxScale = 9f;
         if (itemEffect != null)
-            itemEffect.transform.localScale = Vector3.one * curScale;
-
+            itemEffect.transform.localScale = Vector3.one * CurScale;
     }
 
     public int Level
@@ -98,7 +105,6 @@ public class Item : MonoBehaviour
             if (level >= maxItemLevel)
                 level = maxItemLevel;
 
-            levelText.text = "Lv." + level.ToString();
 
             if (type == ITEM_TYPE.WEAPON)
             {
@@ -113,25 +119,28 @@ public class Item : MonoBehaviour
                     switch (name_type)
                     {
                         case ITEMNAME_TYPE.ARMOR:
-                            GameManager.instance.player.Defense += 0.2f;    // 완
+                            GameManager.instance.player.Defense += 0.2f;
                             break;
                         case ITEMNAME_TYPE.HEALTH:
                             GameManager.instance.player.recoverHp += 0.1f;  // 시간 당 증가량 올리기
                             break;
-                        case ITEMNAME_TYPE.INCREASE:                        // 완
-                            if ( curScale >= maxScale)
+                        case ITEMNAME_TYPE.INCREASE:                    
+                            if (CurScale >= maxScale)
                             {
-                                curScale = maxScale;
+                                CurScale = maxScale;
                             }
-                            curScale += 1;
+                            CurScale += 0.1f;
                             break;
                         case ITEMNAME_TYPE.SPEED:
-                            GameManager.instance.player.Speed += 0.4f; // 완
+                            GameManager.instance.player.Speed += 0.4f;
                             break;
-                        //case ITEMNAME_TYPE.MAGNETISM:
-                        // 획득 범위 증가
-                        //    break;.
-                        
+                        case ITEMNAME_TYPE.MAGNETISM:
+                            GameManager.instance.player.magnetismArea.radius += 0.1f;
+                            break;
+                        case ITEMNAME_TYPE.GoldCoin:
+                            break;
+                        case ITEMNAME_TYPE.HpMeat:
+                            break;
                     }
                 }
             }
@@ -140,23 +149,38 @@ public class Item : MonoBehaviour
 
     public void OnClik()    // 클릭 받음
     {
-        if(this.itemName == "HpMeat")
+        SoundManager.instance.Play(buttonClip, SoundManager.instance.transform);
+        if (this.name_type != ITEMNAME_TYPE.GoldCoin && this.name_type != ITEMNAME_TYPE.HpMeat)
+        { 
+            Level++;
+            levelText.text = "Lv." + level.ToString();
+            ItemUiManager.instance.AddItem(this);
+            if (itemEffect != null)
+            {
+                if (itemEffect.TryGetComponent<PlayerEffectDamage>(out var effect))
+                {
+                    effect.curItem = this;
+                }
+            }
+            //ItemUiManager.instance.StartCoroutine(UseCo());
+            ItemUiManager.instance.UseItem(this);
+        }
+        
+        if(this.name_type == ITEMNAME_TYPE.GoldCoin)
         {
+            float randomCoin = UnityEngine.Random.Range(0, 1000.0f);
+            RecordInfoManager.instance.ReCoin += (int)randomCoin;
+            ItemUiManager.instance.UseSpecialItem(this);
             SoundManager.instance.Play(buttonClip, SoundManager.instance.transform);
         }
-        SoundManager.instance.Play(buttonClip, SoundManager.instance.transform);
-        Level++;
-        
-        ItemUiManager.instance.AddItem(this);
-        if(itemEffect != null)
+
+        if(this.name_type == ITEMNAME_TYPE.HpMeat)
         {
-            if (itemEffect.TryGetComponent<PlayerEffectDamage>(out var effect))
-            {
-                effect.curItem = this;
-            }
+            GameManager.instance.player.Hp += 30;
+            ItemUiManager.instance.UseSpecialItem(this);
+            SoundManager.instance.Play(buttonClip, SoundManager.instance.transform);
         }
-        //ItemUiManager.instance.StartCoroutine(UseCo());
-        ItemUiManager.instance.UseItem(this);
+
         RecordInfoManager.instance.levelUp.ShowLevelUpWindow(false);
     }
 }

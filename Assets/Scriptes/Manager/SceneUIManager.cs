@@ -8,8 +8,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneUIManager : SingleTon<SceneUIManager>
 {
-    public AudioClip clickSound;
-
     public void SceneLoader(string sceneName)       // ¾À ºÒ·¯¿À±â
     {
         SceneManager.LoadScene(sceneName);
@@ -30,5 +28,22 @@ public class SceneUIManager : SingleTon<SceneUIManager>
         SoundManager.instance.audioSource.clip = SoundManager.instance.bgms[1];
         SoundManager.instance.audioSource.Play();
         SceneLoader("Stage01");
+    }
+
+    public void Update()
+    {
+        if(GameManager.instance.IsStart)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                ShowOutPopUpWindow();
+            }
+        }
+    }
+
+    public void ShowOutPopUpWindow()
+    {
+        RecordInfoManager.instance.outScene.gameObject.SetActive(true);
+        GameManager.instance.IsLive = false;
     }
 }

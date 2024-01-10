@@ -65,6 +65,8 @@ public class Enemy : MonoBehaviour, IHitable, IDeadable
 
     protected void FixedUpdate()
     {
+        if (!GameManager.instance.IsStart)
+            return;
         //      방향   = 플레이어 위치 - 몬스터 위치
         Vector2 dirVec = target.position - rb.position;
         //  다음 향할 곳 = 방향 평균화 * 속도 * 프레임과 상관없이 동일한 속도 증가;
@@ -109,7 +111,6 @@ public class Enemy : MonoBehaviour, IHitable, IDeadable
             gameObject.AddComponent<FirstBoss>();
             gameObject.GetComponent<FirstBoss>().Init(monData);
             Destroy(gameObject.GetComponent<Enemy>());
-            
         }
         speed = monData.speed;
         maxHp = monData.health;

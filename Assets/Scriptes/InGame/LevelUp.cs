@@ -13,7 +13,7 @@ using UnityEngine;
 public class LevelUp : MonoBehaviour
 {
     public Item[] items;
-    public SpecialItem[] specialitems;
+    //public SpecialItem[] specialitems;
 
     public void Start()
     {
@@ -61,7 +61,7 @@ public class LevelUp : MonoBehaviour
 
             if (ranItem.Level == ranItem.maxItemLevel)
             {   // 만랩일 때는 코인 또는 고기가 나온다.
-                specialitems[Random.Range(0, 2)].gameObject.SetActive(true);
+                items[Random.Range(10, 12)].gameObject.SetActive(true);
             }
             else
                 ranItem.gameObject.SetActive(true);

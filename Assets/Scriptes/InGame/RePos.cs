@@ -64,14 +64,14 @@ public class RePos : MonoBehaviour
             case "Coin":
                 if (col.enabled)
                 {
-                    transform.Translate(playerDir * 30 + new Vector3(Random.Range(-3f, 3f),
+                    transform.Translate(playerDir * 50 + new Vector3(Random.Range(-3f, 3f),
                                         Random.Range(-3f, 3f), 0f));
                 }
                 break;
             case "Exp":
                 if (col.enabled)
                 {
-                    transform.Translate(playerDir * 30 + new Vector3(Random.Range(-3f, 3f),
+                    transform.Translate(playerDir * 50 + new Vector3(Random.Range(-3f, 3f),
                                         Random.Range(-3f, 3f), 0f));
                 }
                 break;

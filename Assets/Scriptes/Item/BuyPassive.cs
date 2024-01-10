@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 // Scripte Desc:
@@ -11,10 +12,12 @@ using UnityEngine;
 // 기능 까지만 구현이 되어 있습니다.
 // 삭막함을 피하기 위해 이전 팀플에 사용하지 못했던 Spine이미지를 추가로 넣어두었습니다.
 
+
 public class BuyPassive : MonoBehaviour
 {
     public GameObject[] passives = new GameObject[5];
     public AudioClip clickSound;
+    ITEMNAME_TYPE itemType;
 
     public void BuyPassiveItem()
     {
@@ -25,5 +28,11 @@ public class BuyPassive : MonoBehaviour
             PlayerPrefs.SetInt("재화 : ", GameManager.instance.Coin);
             SoundManager.instance.Play(clickSound, SoundManager.instance.transform);
         }
+
+        //switch(itemType)
+        //{
+        //    case ITEMNAME_TYPE.ARMOR:
+        //        break;
+        //}
     }
 }

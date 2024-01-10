@@ -26,6 +26,8 @@ public class RecordInfoManager : MonoBehaviour
         }
     }
 
+    public GameObject outScene;
+
     [Header("Player Text Info")]
     public TextMeshProUGUI timeLabel;
     public TextMeshProUGUI coinLabel;
@@ -35,6 +37,8 @@ public class RecordInfoManager : MonoBehaviour
     public GameObject hpBarObj;             // Hp바 -> 플레이어로 연결
 
     [Header("Ending Scene")]
+    public GameObject overPopUpWindow;
+    public GameObject clearPopUpWindow;
     public ResultWindow clearWindow;
     public ResultWindow overWindow;
 
@@ -71,17 +75,17 @@ public class RecordInfoManager : MonoBehaviour
 
     private void Update()
     {
-        if (ReTime >= GameManager.instance.maxPlayTime)
-            GameManager.instance.IsEnd = true;
+    //    if (ReTime >= GameManager.instance.maxPlayTime)
+    //        GameManager.instance.IsEnd = true;
 
-        if (GameManager.instance.IsStart 
-            /*&& GameManager.instance.IsEnd == false
-            && GameManager.instance.IsClear == false*/)
+        if (GameManager.instance.IsStart)
         {
+            if (GameManager.instance.IsEnd)
+                return;
+
             hpBarObj.SetActive(true);
             ReTime += Time.deltaTime;
-            // 시간 별 점수 = 배율 높에 주고 싶을 때는 time 뒤에 * 변수명(0.2);
-            // score = (int)time;
+
             if (ReTime >= 0f)
             {
                 int min = Mathf.FloorToInt(ReTime / 60);    // 분
