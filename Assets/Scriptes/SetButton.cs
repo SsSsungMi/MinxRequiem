@@ -81,7 +81,7 @@ public class SetButton : MonoBehaviour
                 btn.onClick.AddListener(SceneUIManager.instance.CallMain);
                 SoundManager.instance.Play(sfxs, SoundManager.instance.transform);
                 btn.onClick.AddListener(OutGame);
-                //GameManager.instance.IsStart = false;
+                GameManager.instance.IsStart = false;
                 break;
             case BTN_TYPE.RETURNGAME:
                 btn.onClick.AddListener(ReturnGame);

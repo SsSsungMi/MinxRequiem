@@ -15,6 +15,8 @@ public class SceneUIManager : SingleTon<SceneUIManager>
 
     public void CallMain()
     {
+        SoundManager.instance.audioSource.clip = SoundManager.instance.bgms[0];
+        SoundManager.instance.audioSource.Play();
         SceneLoader("Main");
     }
 
