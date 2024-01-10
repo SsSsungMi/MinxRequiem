@@ -104,8 +104,8 @@ public class GameManager : SingleTon<GameManager>
                 RecordInfoManager.instance.overWindow.SetResultWindow(RecordInfoManager.instance);
                 playerName = RecordInfoManager.instance.overWindow.playerName.text;
 
-                // ·©Å©ÆÇ »ý¼º
-                //MainCanvasManager.instance.rankManager.Record();
+                // InGame Scripte µéÀÇ Update±¸¹® ¸ØÃß±â
+                IsStart = false;
             }
             else if (!isEnd)
             {
@@ -132,9 +132,9 @@ public class GameManager : SingleTon<GameManager>
                 RecordInfoManager.instance.clearWindow.gameObject.SetActive(true);
                 RecordInfoManager.instance.clearWindow.SetResultWindow(RecordInfoManager.instance);
                 playerName = RecordInfoManager.instance.clearWindow.playerName.text;
-                
-                // ·©Å©ÆÇ »ý¼º
-                //MainCanvasManager.instance.rankManager.Record();
+
+                // InGame Scripte µéÀÇ Update±¸¹® ¸ØÃß±â
+                IsStart = false;
             }
             else if (!IsClear)
             {
