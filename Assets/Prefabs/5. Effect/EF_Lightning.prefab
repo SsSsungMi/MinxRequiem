@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 439850423137123072}
   - component: {fileID: 439850423118770456}
   - component: {fileID: 439850423118754294}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Droplets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4883,7 +4883,7 @@ GameObject:
   - component: {fileID: 439850423118727008}
   - component: {fileID: 439850423118757860}
   - component: {fileID: 5343029712817858831}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EF_Lightning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4901,7 +4901,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 439850423137123072}
   m_Father: {fileID: 0}
@@ -9677,7 +9677,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_RenderMode: 1
   m_MeshDistribution: 0
   m_SortMode: 0

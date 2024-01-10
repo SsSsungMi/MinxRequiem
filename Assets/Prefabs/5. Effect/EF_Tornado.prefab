@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 199599515987455396}
   - component: {fileID: -7332451009228761247}
   - component: {fileID: 8129977073599063058}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EF_Tornado
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.5807242, y: -9.70656, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4033783365223634}
   - {fileID: 4660060382753820}
@@ -4799,7 +4799,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_RenderMode: 4
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -4889,7 +4889,7 @@ GameObject:
   - component: {fileID: 4660060382753820}
   - component: {fileID: 198443559810520360}
   - component: {fileID: 199571402950504812}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Dark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9716,7 +9716,7 @@ GameObject:
   - component: {fileID: 198946936976816592}
   - component: {fileID: 199507494128822642}
   - component: {fileID: 114484784377482596}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DustCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

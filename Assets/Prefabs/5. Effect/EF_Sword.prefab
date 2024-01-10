@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 480750074823868173}
   - component: {fileID: 481353430069207671}
   - component: {fileID: 431284171175325517}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4897,7 +4897,7 @@ GameObject:
   - component: {fileID: 322595835172577985}
   - component: {fileID: 480511274046716703}
   - component: {fileID: 480866528906327065}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9725,7 +9725,7 @@ GameObject:
   - component: {fileID: 316691998871318013}
   - component: {fileID: 480246613417019139}
   - component: {fileID: 481557570990551859}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Dark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14551,7 +14551,7 @@ GameObject:
   - component: {fileID: 3468372119183796152}
   - component: {fileID: 3669609479238913350}
   - component: {fileID: 3668720305724324214}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Dark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19378,7 +19378,7 @@ GameObject:
   - component: {fileID: 3669527717056951624}
   - component: {fileID: 3668502704471124018}
   - component: {fileID: 3583463469868393736}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24265,7 +24265,7 @@ GameObject:
   - component: {fileID: 3669129874979257948}
   - component: {fileID: -6131000735690689433}
   - component: {fileID: 6928868480460912991}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EF_Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24283,7 +24283,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3468429364663761066}
   - {fileID: 3468372119183796152}
@@ -29052,7 +29052,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_RenderMode: 4
   m_MeshDistribution: 0
   m_SortMode: 0
