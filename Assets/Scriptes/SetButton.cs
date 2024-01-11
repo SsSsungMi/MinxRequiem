@@ -48,10 +48,10 @@ public class SetButton : MonoBehaviour
                 break;
             case BTN_TYPE.STAGE01:
                 btn.onClick.AddListener(YellowSkin);
-                SoundManager.instance.Play(sfxs, SoundManager.instance.transform);
+                SoundManager.instance.Play(sfxs, SoundManager.instance.transform);  // 이 부분을 아래 스테이지 선택 enum에 넣고
                 break;
-            case BTN_TYPE.STAGESELECT:
-                // 위의 STAGE01이 안 눌리면 onClick 못하게 하고 싶은데...음
+            case BTN_TYPE.STAGESELECT:                                             // 함수 하나 만들어서 배열[스테이지 2개] 배열에 맞는 스테이지를 얻어서
+                // 위의 STAGE01이 안 눌리면 onClick 못하게 하고 싶은데...음             if문 0, 1 번에 따라 해당 스테이지로 이동하는 함수 만들어서 실행하기
                 btn.onClick.AddListener(SceneUIManager.instance.Stage01Move);
                 SoundManager.instance.Play(sfxs, SoundManager.instance.transform);
                 break;
@@ -116,8 +116,6 @@ public class SetButton : MonoBehaviour
     public void StartGame()
     {
         GameManager.instance.IsStart = true;
-        GameManager.instance.IsEnd = false;
-
         btn.gameObject.SetActive(false);
     }
 

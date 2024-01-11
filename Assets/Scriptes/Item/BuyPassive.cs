@@ -15,8 +15,8 @@ using UnityEngine;
 
 public class BuyPassive : MonoBehaviour
 {
-    public GameObject[] passives = new GameObject[5];
-    public AudioClip clickSound;
+    public GameObject[] passives = new GameObject[5];           // 이 부분 아이템들을 배열로 담는데 아이템이 눌렸을 때 금액 또는 이미지 색 변경해주고
+    public AudioClip clickSound;                                // 구매를 눌렀을 때 아래 결과 호출해주고 실제 내가 가지고 있는 플레이어들의 방어력 등을 올려주기
     ITEMNAME_TYPE itemType;
 
     public void BuyPassiveItem()
