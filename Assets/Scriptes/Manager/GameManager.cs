@@ -15,6 +15,11 @@ using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 
 public class GameManager : SingleTon<GameManager>
 {
+    [Header("Character Info")]
+    public Character Characters;                // 캐릭터 종류
+    private GameObject[] CharacterObjs;         // 캐릭터 오브젝트
+    public GameObject[] CharacterPrefabs;       // 복사할 프리펩
+
     [Header("Player Info")]
     public Player player;                       // 플레이어 정보
     private GameObject playerObj;               // 플레이어 오브젝트

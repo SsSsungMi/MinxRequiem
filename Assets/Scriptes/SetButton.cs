@@ -65,9 +65,9 @@ public class SetButton : MonoBehaviour
                 SoundManager.instance.Play(sfxs, SoundManager.instance.transform);
                 cam.UiCamPointMove(0);
                 break;
-            case BTN_TYPE.CHARACTERSELECT:
-                btn.onClick.AddListener(ShowCharacterSelectParticle);
-                SoundManager.instance.Play(sfxs, SoundManager.instance.transform);
+            case BTN_TYPE.CHARACTERSELECT:                                              // 여기 선택 됐을 때 이펙트랑 소리 나오는 곳
+                btn.onClick.AddListener(ShowCharacterSelectParticle);                   // 배열 만들어서 어떤 캐릭터인가 ? 묻고 GameManager의 배열에 몇번 째 캐릭인지 알려주기
+                SoundManager.instance.Play(sfxs, SoundManager.instance.transform);      // 그리고 그 UI의 위치에 있는 파티클 열리게 하기
                 break;
             case BTN_TYPE.OVERPOPUPWINDOW:
                 btn.onClick.AddListener(OverPopUpWindow);
@@ -131,6 +131,7 @@ public class SetButton : MonoBehaviour
         yield return new WaitForSeconds(10);
         btn.GetComponent<Image>().color = Color.white;
     }
+
     public void OverPopUpWindow()
     {
         RecordInfoManager.instance.overPopUpWindow.SetActive(false);
