@@ -37,6 +37,8 @@ public class ItemUiManager : MonoBehaviour
     public Slot[] weaponSlots = new Slot[5];
     public Slot[] passiveSlots = new Slot[5];
     public LevelUp allItems;
+    public GameObject curStatus;
+    private bool statusPopUp = true;
 
     bool isFind = false;
     UnlockItem unlock;
@@ -72,6 +74,27 @@ public class ItemUiManager : MonoBehaviour
         {
             passiveSlots[i].item = null;
         }
+        curStatus.SetActive(true);
+    }
+
+    public void Update()
+    {
+        if (GameManager.instance.IsStart)
+        {
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                if (statusPopUp)
+                {
+                    curStatus.SetActive(false);
+                    statusPopUp = false;
+                }
+                else
+                {
+                    curStatus.SetActive(true);
+                    statusPopUp = true;
+                }
+            }
+        }
     }
 
     // 아이템 도감의 잠금 이미지를 비활성화 시킨다.
@@ -83,7 +106,7 @@ public class ItemUiManager : MonoBehaviour
 
     public void UseItem(Item item)
     {
-        if(item.curCo != null)
+        if (item.curCo != null)
         {
             StopCoroutine(item.curCo);
         }
@@ -109,16 +132,16 @@ public class ItemUiManager : MonoBehaviour
         }
     }
 
-    public void FirstCustomAddItem(Item adItem,int i)
+    public void FirstCustomAddItem(Item adItem, int i)
     {
         //공격 아이템의 추가적인 부분//
-        if(adItem.itemEffect == null)
+        if (adItem.itemEffect == null)
         {
             return;
         }
         adItem.itemEffect = Instantiate(weaponSlots[i].item.itemEffect);
         adItem.itemEffect.transform.SetParent(GameManager.instance.player.transform);
-        
+
         for (int j = 0; j < allItems.items.Length; j++)
         {
             allItems.items[j].CurScale = allItems.items[8].CurScale;
@@ -143,10 +166,10 @@ public class ItemUiManager : MonoBehaviour
     public void AddItem(Item adItem)
     {
         Slot[] inputItemSlots = (adItem.type == ITEM_TYPE.PASSIVE) ? passiveSlots : weaponSlots;
-     
+
         for (int i = 0; i < inputItemSlots.Length; i++)
         {
-            if(inputItemSlots[i].item == null)
+            if (inputItemSlots[i].item == null)
             {
                 inputItemSlots[i].SetItem(adItem, adItem.Level);
                 FirstCustomAddItem(adItem, i);
