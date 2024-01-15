@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Scripte Desc:
-// 타일 맵과 몬스터, 드롭 코인, 드롭 경험치, 장애물(나무)의 위치를 재정의해주는 스크립트 입니다.
+// 타일 맵과 몬스터, 드롭 코인, 드롭 경험치, 장애물(Obstacle)의 위치를 재정의해주는 스크립트 입니다.
 // 오브젝트가 플레이어의 Area에서 일정 거리 이상 멀어지면 위치가 재정의 됩니다.
 
 public class RePos : MonoBehaviour
@@ -30,12 +30,12 @@ public class RePos : MonoBehaviour
         float dirX = playerPos.x - myPos.x;
         float dirY = playerPos.y - myPos.y;
 
-        //  다른 x 값 = 절대값(- 값 없애줌)
-        float diffx = Mathf.Abs(dirX);  // x간의 거리
-        float diffy = Mathf.Abs(dirY);  // y간의 거리
+        //  절대값 계산
+        float diffx = Mathf.Abs(dirX);  // x 간의 거리
+        float diffy = Mathf.Abs(dirY);  // y 간의 거리
 
-        // 삼항연산자 => ?
-        // 방향 = 플레이어의 x > 0 맞는가?  => true 1   / false -1 
+        // 삼항연산자
+        // 방향 = 플레이어의 x > 0 맞는가?  => true 1 / false -1 
         dirX = dirX > 0 ? 1 : -1;
         dirY = dirY > 0 ? 1 : -1;
 

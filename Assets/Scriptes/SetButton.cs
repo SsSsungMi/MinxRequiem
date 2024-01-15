@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -48,10 +49,10 @@ public class SetButton : MonoBehaviour
                 break;
             case BTN_TYPE.STAGE01:
                 btn.onClick.AddListener(YellowSkin);
-                SoundManager.instance.Play(sfxs, SoundManager.instance.transform);  // 이 부분을 아래 스테이지 선택 enum에 넣고
+                SoundManager.instance.Play(sfxs, SoundManager.instance.transform);                   // 이 부분을 아래 스테이지 선택 enum에 넣고
                 break;
-            case BTN_TYPE.STAGESELECT:                                             // 함수 하나 만들어서 배열[스테이지 2개] 배열에 맞는 스테이지를 얻어서
-                // 위의 STAGE01이 안 눌리면 onClick 못하게 하고 싶은데...음             if문 0, 1 번에 따라 해당 스테이지로 이동하는 함수 만들어서 실행하기
+            case BTN_TYPE.STAGESELECT:                                                               // 함수 하나 만들어서 배열[스테이지 2개] 배열에 맞는 스테이지를 얻어서
+                                                                                                     // if문 0, 1 번에 따라 해당 스테이지로 이동하는 함수 만들어서 실행하기
                 btn.onClick.AddListener(SceneUIManager.instance.Stage01Move);
                 SoundManager.instance.Play(sfxs, SoundManager.instance.transform);
                 break;
@@ -65,9 +66,9 @@ public class SetButton : MonoBehaviour
                 SoundManager.instance.Play(sfxs, SoundManager.instance.transform);
                 cam.UiCamPointMove(0);
                 break;
-            case BTN_TYPE.CHARACTERSELECT:                                              // 여기 선택 됐을 때 이펙트랑 소리 나오는 곳
-                btn.onClick.AddListener(ShowCharacterSelectParticle);                   // 배열 만들어서 어떤 캐릭터인가 ? 묻고 GameManager의 배열에 몇번 째 캐릭인지 알려주기
-                SoundManager.instance.Play(sfxs, SoundManager.instance.transform);      // 그리고 그 UI의 위치에 있는 파티클 열리게 하기
+            case BTN_TYPE.CHARACTERSELECT:                                                           // 여기 선택 됐을 때 이펙트랑 소리 나오는 곳
+                btn.onClick.AddListener(ShowCharacterSelectParticle);                                // 배열 만들어서 어떤 캐릭터인가 ? 묻고 GameManager의 배열에 몇번 째 캐릭인지 알려주기
+                SoundManager.instance.Play(sfxs, SoundManager.instance.transform);                   // 그리고 그 UI의 위치에 있는 파티클 열리게 하기
                 break;
             case BTN_TYPE.OVERPOPUPWINDOW:
                 btn.onClick.AddListener(OverPopUpWindow);
