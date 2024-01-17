@@ -79,11 +79,11 @@ public class ItemUiManager : MonoBehaviour
 
     public void Update()
     {
-        if (GameManager.instance.IsStart)
+        if(GameManager.instance.IsStart)
         {
-            if (Input.GetKeyDown(KeyCode.I))
+            if(Input.GetKeyDown(KeyCode.I))
             {
-                if (statusPopUp)
+                if(statusPopUp)
                 {
                     curStatus.SetActive(false);
                     statusPopUp = false;
@@ -106,7 +106,7 @@ public class ItemUiManager : MonoBehaviour
 
     public void UseItem(Item item)
     {
-        if (item.curCo != null)
+        if(item.curCo != null)
         {
             StopCoroutine(item.curCo);
         }
@@ -132,16 +132,16 @@ public class ItemUiManager : MonoBehaviour
         }
     }
 
-    public void FirstCustomAddItem(Item adItem, int i)
+    public void FirstCustomAddItem(Item adItem,int i)
     {
         //공격 아이템의 추가적인 부분//
-        if (adItem.itemEffect == null)
+        if(adItem.itemEffect == null)
         {
             return;
         }
         adItem.itemEffect = Instantiate(weaponSlots[i].item.itemEffect);
         adItem.itemEffect.transform.SetParent(GameManager.instance.player.transform);
-
+        
         for (int j = 0; j < allItems.items.Length; j++)
         {
             allItems.items[j].CurScale = allItems.items[8].CurScale;
@@ -166,10 +166,10 @@ public class ItemUiManager : MonoBehaviour
     public void AddItem(Item adItem)
     {
         Slot[] inputItemSlots = (adItem.type == ITEM_TYPE.PASSIVE) ? passiveSlots : weaponSlots;
-
+     
         for (int i = 0; i < inputItemSlots.Length; i++)
         {
-            if (inputItemSlots[i].item == null)
+            if(inputItemSlots[i].item == null)
             {
                 inputItemSlots[i].SetItem(adItem, adItem.Level);
                 FirstCustomAddItem(adItem, i);

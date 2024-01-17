@@ -139,7 +139,9 @@ namespace Spine.Unity {
 			RectTransform thisTransform = this.transform as RectTransform;
 			if (thisTransform == null) return;
 
-			float scale = skeletonGraphic.MeshScale;
+			Canvas canvas = skeletonGraphic.canvas;
+			if (canvas == null) canvas = skeletonGraphic.GetComponentInParent<Canvas>();
+			float scale = canvas != null ? canvas.referencePixelsPerUnit : 100.0f;
 
 			float additionalFlipScale = 1;
 			if (skeletonTransformIsParent) {

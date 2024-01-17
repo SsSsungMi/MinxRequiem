@@ -54,7 +54,7 @@ namespace Spine.Unity {
 		#endregion
 
 		AnimationState animationState;
-		SkeletonGraphic skeletonGraphic;
+		Canvas canvas;
 
 		public override Vector2 GetRemainingRootMotion (int trackIndex) {
 			TrackEntry track = animationState.GetCurrent(trackIndex);
@@ -79,7 +79,7 @@ namespace Spine.Unity {
 
 		protected override float AdditionalScale {
 			get {
-				return skeletonGraphic ? skeletonGraphic.MeshScale : 1.0f;
+				return canvas ? canvas.referencePixelsPerUnit : 1.0f;
 			}
 		}
 
@@ -93,7 +93,9 @@ namespace Spine.Unity {
 			IAnimationStateComponent animstateComponent = skeletonComponent as IAnimationStateComponent;
 			this.animationState = (animstateComponent != null) ? animstateComponent.AnimationState : null;
 
-			skeletonGraphic = this.GetComponent<SkeletonGraphic>();
+			if (this.GetComponent<CanvasRenderer>() != null) {
+				canvas = this.GetComponentInParent<Canvas>();
+			}
 		}
 
 		protected override Vector2 CalculateAnimationsMovementDelta () {

@@ -15,11 +15,6 @@ using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 
 public class GameManager : SingleTon<GameManager>
 {
-    [Header("Character Info")]
-    public Character Characters;                // 캐릭터 종류
-    private GameObject[] CharacterObjs;         // 캐릭터 오브젝트
-    public GameObject[] CharacterPrefabs;       // 복사할 프리펩
-
     [Header("Player Info")]
     public Player player;                       // 플레이어 정보
     private GameObject playerObj;               // 플레이어 오브젝트
@@ -109,7 +104,6 @@ public class GameManager : SingleTon<GameManager>
                 RecordInfoManager.instance.overWindow.SetResultWindow(RecordInfoManager.instance);
                 playerName = RecordInfoManager.instance.overWindow.playerName.text;
 
-                // InGame Scripte 들의 Update구문 멈추기
                 IsStart = false;
             }
             else if (!isEnd)
@@ -138,7 +132,6 @@ public class GameManager : SingleTon<GameManager>
                 RecordInfoManager.instance.clearWindow.SetResultWindow(RecordInfoManager.instance);
                 playerName = RecordInfoManager.instance.clearWindow.playerName.text;
 
-                // InGame Scripte 들의 Update구문 멈추기
                 IsStart = false;
             }
             else if (!IsClear)

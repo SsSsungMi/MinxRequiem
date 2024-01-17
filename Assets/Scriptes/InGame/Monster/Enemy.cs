@@ -8,7 +8,8 @@ using UnityEngine;
 // 레벨에 따른 몬스터를 생성할 수 있도록 애니메이션을 Spawner에게 전달해줍니다.
 // 죽었다면 ? => 비활성화 시키며 오디오 Clip을 실행합니다.
 // PoolMg에 의해 활성화가 될 때 자신의 값을  OnEnable()과 Init()으로 초기화합니다.
-// 생성 또는 활성화 되었을 때 플레이어의 RigidBody2D를 받아서 따라가게 합니다.
+
+// 생성 또는 활성화 되었을 때는 플레이어의 RigidBody2D를 받아서 위치를 따라가게 합니다.
 
 public class Enemy : MonoBehaviour, IHitable, IDeadable
 {
@@ -26,7 +27,7 @@ public class Enemy : MonoBehaviour, IHitable, IDeadable
     protected SpriteRenderer sprite;
 
     [Header("Target Info")]
-    public Rigidbody2D target;          // 타겟 = 플레이어
+    public Rigidbody2D target;                          // 타겟 = 플레이어
 
     [Header("Drop Items")]
     protected int score;

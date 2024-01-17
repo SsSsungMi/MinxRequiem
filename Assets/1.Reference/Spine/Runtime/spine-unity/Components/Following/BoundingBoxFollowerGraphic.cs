@@ -125,7 +125,10 @@ namespace Spine.Unity {
 			int requiredCollidersCount = 0;
 			PolygonCollider2D[] colliders = GetComponents<PolygonCollider2D>();
 			if (this.gameObject.activeInHierarchy) {
-				float scale = skeletonGraphic.MeshScale;
+				Canvas canvas = skeletonGraphic.canvas;
+				if (canvas == null) canvas = skeletonGraphic.GetComponentInParent<Canvas>();
+				float scale = canvas != null ? canvas.referencePixelsPerUnit : 100.0f;
+
 				foreach (Skin skin in skeleton.Data.Skins)
 					AddCollidersForSkin(skin, slotIndex, colliders, scale, ref requiredCollidersCount);
 

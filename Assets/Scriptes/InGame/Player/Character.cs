@@ -25,6 +25,7 @@ public class Status
     //public List<Skill> towerSkills;
     public int maxProperty = 9;
 }
+
 //-----------------------------------------------------
 
 // Scripte Desc:
@@ -94,25 +95,16 @@ public abstract class Character : MonoBehaviour, IHitable, IDeadable
     public void Start()
     {
         status.hp = status.maxHp;
-        //hitAniTimer = 0.1f;                             // 코루틴의 맞는 대기시간
         rigid = GetComponent<Rigidbody2D>();
-        //hitAniDelay = new WaitForSeconds(hitAniTimer);  // 코루틴에 바로 적용 가능한 맞는 대기시간
     }
 
     protected void OnMove(InputValue value)
     {
-        inputVec = value.Get<Vector2>();    // Get으로 ControlType을 가져와 형변환 시킴
-
-        // 아래는 기존 방법
-        // inputVec.x = Input.GetAxisRaw("Horizontal");
-        // inputVec.y = Input.GetAxisRaw("Vertical");
+        inputVec = value.Get<Vector2>();
     }
 
     protected void FixedMove()
     {
-        // InputSystem Package 에서 Normalize 를 넣었기 때문에 빼주어도 된다.
-        // Vector2 nextVec = inputVec.normalized * status.speed * Time.fixedDeltaTime;
-
         Vector2 nextVec = inputVec * status.speed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextVec);
     }

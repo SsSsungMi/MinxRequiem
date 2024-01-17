@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public enum BTN_TYPE
@@ -21,12 +21,21 @@ public enum BTN_TYPE
     RETURNGAME
 }
 
+// 아래처럼 클래스를 만들고 []을 뽑아서 switch 안에 있는 정보를 담고 각 씬마다 사용하는건?
+[Serializable]
+public class TmepClass      
+{
+    UnityEvent unityEvent;
+    //SoundManager.instance.Play(sfxs, SoundManager.instance.transform);
+}
+
 // Scripte Desc:
 // MainCanvas를 제외한 장소의 버튼들을 관장하는 스크립트 입니다.
 // 각 버튼이 자신의 기능을 가질 수 있도록 enum을 통해 Type을 분류한 후 onClick 이벤트를 주었습니다.
 
 public class SetButton : MonoBehaviour
 {
+    TmepClass ee;
     Button btn;
     public BTN_TYPE type;
     CamPointManager cam;
@@ -49,10 +58,10 @@ public class SetButton : MonoBehaviour
                 break;
             case BTN_TYPE.STAGE01:
                 btn.onClick.AddListener(YellowSkin);
-                SoundManager.instance.Play(sfxs, SoundManager.instance.transform);                   // 이 부분을 아래 스테이지 선택 enum에 넣고
+                SoundManager.instance.Play(sfxs, SoundManager.instance.transform);
                 break;
-            case BTN_TYPE.STAGESELECT:                                                               // 함수 하나 만들어서 배열[스테이지 2개] 배열에 맞는 스테이지를 얻어서
-                                                                                                     // if문 0, 1 번에 따라 해당 스테이지로 이동하는 함수 만들어서 실행하기
+            case BTN_TYPE.STAGESELECT:
+                // 위의 STAGE01이 안 눌리면 onClick 못하게 하고 싶은데...음
                 btn.onClick.AddListener(SceneUIManager.instance.Stage01Move);
                 SoundManager.instance.Play(sfxs, SoundManager.instance.transform);
                 break;
@@ -66,9 +75,9 @@ public class SetButton : MonoBehaviour
                 SoundManager.instance.Play(sfxs, SoundManager.instance.transform);
                 cam.UiCamPointMove(0);
                 break;
-            case BTN_TYPE.CHARACTERSELECT:                                                           // 여기 선택 됐을 때 이펙트랑 소리 나오는 곳
-                btn.onClick.AddListener(ShowCharacterSelectParticle);                                // 배열 만들어서 어떤 캐릭터인가 ? 묻고 GameManager의 배열에 몇번 째 캐릭인지 알려주기
-                SoundManager.instance.Play(sfxs, SoundManager.instance.transform);                   // 그리고 그 UI의 위치에 있는 파티클 열리게 하기
+            case BTN_TYPE.CHARACTERSELECT:
+                btn.onClick.AddListener(ShowCharacterSelectParticle);
+                SoundManager.instance.Play(sfxs, SoundManager.instance.transform);
                 break;
             case BTN_TYPE.OVERPOPUPWINDOW:
                 btn.onClick.AddListener(OverPopUpWindow);
@@ -82,7 +91,6 @@ public class SetButton : MonoBehaviour
                 btn.onClick.AddListener(SceneUIManager.instance.CallMain);
                 SoundManager.instance.Play(sfxs, SoundManager.instance.transform);
                 btn.onClick.AddListener(OutGame);
-                GameManager.instance.IsStart = false;
                 break;
             case BTN_TYPE.RETURNGAME:
                 btn.onClick.AddListener(ReturnGame);
@@ -93,6 +101,7 @@ public class SetButton : MonoBehaviour
 
     public void OutGame()
     {
+        GameManager.instance.IsStart = false;
         cam.UiCamPointMove(0);
         GameManager.instance.IsLive = true;
     }
@@ -117,6 +126,8 @@ public class SetButton : MonoBehaviour
     public void StartGame()
     {
         GameManager.instance.IsStart = true;
+        GameManager.instance.IsEnd = false;
+
         btn.gameObject.SetActive(false);
     }
 
@@ -132,7 +143,6 @@ public class SetButton : MonoBehaviour
         yield return new WaitForSeconds(10);
         btn.GetComponent<Image>().color = Color.white;
     }
-
     public void OverPopUpWindow()
     {
         RecordInfoManager.instance.overPopUpWindow.SetActive(false);

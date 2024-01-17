@@ -176,7 +176,7 @@ namespace Spine.Unity.Editor {
 			Material[] currentMaterials = meshRenderer.sharedMaterials;
 
 			if (currentMaterials.Length == 0 || currentMaterials[0] == null) {
-				// Note: if no attachments are visible, no materials are set. This is a valid state.
+				Debug.LogWarning("No materials found assigned at " + skeleton.name);
 				return false;
 			}
 

@@ -157,13 +157,14 @@ namespace Spine.Unity {
 				}
 			}
 
-			if (skeletonGraphic != null) {
-				positionScale = skeletonGraphic.MeshScale;
+			if (canvas != null) {
+				positionScale = canvas.referencePixelsPerUnit;
 			}
 		}
 
 		[HideInInspector] public SkeletonRenderer skeletonRenderer;
 		[HideInInspector] public SkeletonGraphic skeletonGraphic;
+		private Canvas canvas;
 		[System.NonSerialized] public ISkeletonAnimation skeletonAnimation;
 
 		private ISkeletonComponent skeletonComponent;
@@ -232,6 +233,11 @@ namespace Spine.Unity {
 			} else if (skeletonGraphic != null) {
 				skeletonGraphic.OnRebuild -= HandleRendererReset;
 				skeletonGraphic.OnRebuild += HandleRendererReset;
+				canvas = skeletonGraphic.canvas;
+				if (canvas == null)
+					canvas = skeletonGraphic.GetComponentInParent<Canvas>();
+				if (canvas == null)
+					positionScale = 100.0f;
 			}
 
 			if (skeletonAnimation != null) {

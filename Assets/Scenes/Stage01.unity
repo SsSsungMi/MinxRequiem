@@ -7433,6 +7433,7 @@ MonoBehaviour:
   - {fileID: 1093461558}
   - {fileID: 1083304785}
   allItems: {fileID: 1696748626}
+  curStatus: {fileID: 826215427}
 --- !u!4 &1870552768
 Transform:
   m_ObjectHideFlags: 0
