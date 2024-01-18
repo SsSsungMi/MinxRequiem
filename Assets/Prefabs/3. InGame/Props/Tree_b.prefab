@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2521145916787216796}
   - component: {fileID: 5558948748248246543}
   - component: {fileID: -2242502412799232938}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Tree_b
   m_TagString: Tree
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.2}
-  m_Size: {x: 0.98, y: 1.2}
+  m_Size: {x: 0.74, y: 1.2}
   m_Direction: 0
 --- !u!114 &-2242502412799232938
 MonoBehaviour:

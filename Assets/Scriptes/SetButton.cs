@@ -101,9 +101,9 @@ public class SetButton : MonoBehaviour
 
     public void OutGame()
     {
-        GameManager.instance.IsStart = false;
         cam.UiCamPointMove(0);
         GameManager.instance.IsLive = true;
+        GameManager.instance.IsStart = false;
     }
 
     public void ReturnGame()

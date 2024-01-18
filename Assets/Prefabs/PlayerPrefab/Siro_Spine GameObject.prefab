@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5580105566151972655}
   - component: {fileID: 5009364720770587227}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Spawner(16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 219321583487007118}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.79, y: 0.06, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.55, y: 0.26999998, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -81,7 +81,7 @@ MonoBehaviour:
     score: 100
     curCount: 0
     maxCount: 3
-    dropCoin: {fileID: 5766082791398518949, guid: d958b26f8930628468cc8bcfcea74dbd, type: 3}
+    dropCoin: {fileID: 3875563298028783755, guid: 365483e17c200f54c891a24fc9be6c3e, type: 3}
     maxCoin: 2
     dropExp: {fileID: 5116983981015554868, guid: 1be8d5d13ba960145bb984c50284e762, type: 3}
   - spwanTime: 0.2
@@ -92,7 +92,7 @@ MonoBehaviour:
     score: 20
     curCount: 0
     maxCount: 50
-    dropCoin: {fileID: 1616858699771230755, guid: 6e45dba2318b00546af8ba1b1aa8ccb5, type: 3}
+    dropCoin: {fileID: 5766082791398518949, guid: d958b26f8930628468cc8bcfcea74dbd, type: 3}
     maxCoin: 1
     dropExp: {fileID: 7114179494345066691, guid: aee16bb2bf4894b47bf55252d294dd0a, type: 3}
   - spwanTime: 0.5
@@ -114,10 +114,10 @@ MonoBehaviour:
     score: 200
     curCount: 0
     maxCount: 2
-    dropCoin: {fileID: 1616858699771230755, guid: 6e45dba2318b00546af8ba1b1aa8ccb5, type: 3}
+    dropCoin: {fileID: 3875563298028783755, guid: 365483e17c200f54c891a24fc9be6c3e, type: 3}
     maxCoin: 3
     dropExp: {fileID: 1436257372985301627, guid: 184e66ab578e3b842a6a4dd3f13a52ae, type: 3}
-  - spwanTime: 0.5
+  - spwanTime: 0.2
     spriteType: 5
     health: 20
     atk: 3
@@ -125,10 +125,10 @@ MonoBehaviour:
     score: 20
     curCount: 0
     maxCount: 50
-    dropCoin: {fileID: 3875563298028783755, guid: 365483e17c200f54c891a24fc9be6c3e, type: 3}
+    dropCoin: {fileID: 1616858699771230755, guid: 6e45dba2318b00546af8ba1b1aa8ccb5, type: 3}
     maxCoin: 1
     dropExp: {fileID: 5116983981015554868, guid: 1be8d5d13ba960145bb984c50284e762, type: 3}
-  - spwanTime: 0.5
+  - spwanTime: 0.3
     spriteType: 6
     health: 30
     atk: 3
@@ -139,7 +139,7 @@ MonoBehaviour:
     dropCoin: {fileID: 3875563298028783755, guid: 365483e17c200f54c891a24fc9be6c3e, type: 3}
     maxCoin: 1
     dropExp: {fileID: 1436257372985301627, guid: 184e66ab578e3b842a6a4dd3f13a52ae, type: 3}
-  - spwanTime: 0.5
+  - spwanTime: 1
     spriteType: 7
     health: 300
     atk: 1.5
@@ -147,7 +147,7 @@ MonoBehaviour:
     score: 300
     curCount: 0
     maxCount: 3
-    dropCoin: {fileID: 3875563298028783755, guid: 365483e17c200f54c891a24fc9be6c3e, type: 3}
+    dropCoin: {fileID: 3163052527040223254, guid: 508d4cd52e33bb4488e24f83ef3b9878, type: 3}
     maxCoin: 3
     dropExp: {fileID: 3163052527040223254, guid: 508d4cd52e33bb4488e24f83ef3b9878, type: 3}
   - spwanTime: 10
@@ -158,7 +158,7 @@ MonoBehaviour:
     score: 20
     curCount: 0
     maxCount: 1
-    dropCoin: {fileID: 3875563298028783755, guid: 365483e17c200f54c891a24fc9be6c3e, type: 3}
+    dropCoin: {fileID: 3163052527040223254, guid: 508d4cd52e33bb4488e24f83ef3b9878, type: 3}
     maxCoin: 5
     dropExp: {fileID: 3163052527040223254, guid: 508d4cd52e33bb4488e24f83ef3b9878, type: 3}
   spawnLevel: 0
@@ -171,7 +171,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7511949196231933955}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: SpawnPoint (6)
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: c5b2c7204ccdac64ab95235f890295a3, type: 3}
@@ -203,7 +203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2620021907114601602}
   - component: {fileID: 7636693995138224992}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Area
   m_TagString: Area
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ Transform:
   m_GameObject: {fileID: 746683404928234832}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.79, y: 0.06, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2365, y: 0.0648, z: 0.29999998}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -268,7 +268,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 145, y: 499.88}
+  m_Size: {x: 160, y: 490}
   m_EdgeRadius: 0
 --- !u!1 &1038428604294079661
 GameObject:
@@ -279,7 +279,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4305825315433964479}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: SpawnPoint (4)
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: c5b2c7204ccdac64ab95235f890295a3, type: 3}
@@ -310,7 +310,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 767850254946507193}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: SpawnPoint (9)
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: c5b2c7204ccdac64ab95235f890295a3, type: 3}
@@ -341,7 +341,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6585869412971439570}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: SpawnPoint (10)
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: c5b2c7204ccdac64ab95235f890295a3, type: 3}
@@ -372,7 +372,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4258848084055285551}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: SpawnPoint (3)
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: c5b2c7204ccdac64ab95235f890295a3, type: 3}
@@ -403,7 +403,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 165347024651562823}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: SpawnPoint (8)
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: c5b2c7204ccdac64ab95235f890295a3, type: 3}
@@ -434,7 +434,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2427964073675587908}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: SpawnPoint (13)
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: c5b2c7204ccdac64ab95235f890295a3, type: 3}
@@ -465,7 +465,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3218709484028547528}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: SpawnPoint (14)
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: c5b2c7204ccdac64ab95235f890295a3, type: 3}
@@ -496,7 +496,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8258778027681037075}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: SpawnPoint (7)
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: c5b2c7204ccdac64ab95235f890295a3, type: 3}
@@ -528,9 +528,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3549030463898598112}
   - component: {fileID: 5114135785099185561}
-  m_Layer: 7
-  m_Name: GameObject
-  m_TagString: DropItem
+  m_Layer: 10
+  m_Name: MagnetismArea
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -544,7 +544,7 @@ Transform:
   m_GameObject: {fileID: 3806205308246718628}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.03, y: 0.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -579,7 +579,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -594,7 +594,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8831718410176246289}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: SpawnPoint (15)
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: c5b2c7204ccdac64ab95235f890295a3, type: 3}
@@ -625,7 +625,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7989592515054060499}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: SpawnPoint (2)
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: c5b2c7204ccdac64ab95235f890295a3, type: 3}
@@ -656,7 +656,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 355325761921175775}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: SpawnPoint (11)
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: c5b2c7204ccdac64ab95235f890295a3, type: 3}
@@ -687,7 +687,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4202732397267059017}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: SpawnPoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: c5b2c7204ccdac64ab95235f890295a3, type: 3}
@@ -725,7 +725,7 @@ GameObject:
   - component: {fileID: 7806094933743638496}
   - component: {fileID: 5141977050383723060}
   - component: {fileID: 91463615534042483}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Siro_Spine GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -741,7 +741,7 @@ Transform:
   m_GameObject: {fileID: 6111208005357500995}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.06, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -867,9 +867,10 @@ MonoBehaviour:
     maxProperty: 9
   rigid: {fileID: 7806094933743638496}
   inputVec: {x: 0, y: 0}
-  recoverHp: 0
+  recoverHp: 0.1
   deadSound: {fileID: 8300000, guid: 79e6baad2fd414b82a6d49ce1568d2e5, type: 3}
   hitEffect: {fileID: 3706773966403600307}
+  magnetismArea: {fileID: 5114135785099185561}
 --- !u!50 &7806094933743638496
 Rigidbody2D:
   serializedVersion: 4
@@ -971,7 +972,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8042061560038423734}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: SpawnPoint (5)
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: c5b2c7204ccdac64ab95235f890295a3, type: 3}
@@ -1002,7 +1003,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6342068731469783967}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: SpawnPoint (12)
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: c5b2c7204ccdac64ab95235f890295a3, type: 3}
@@ -1033,7 +1034,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6231355576950478135}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: c5b2c7204ccdac64ab95235f890295a3, type: 3}
@@ -1067,13 +1068,25 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.4625
       objectReference: {fileID: 0}
+    - target: {fileID: 1239958636756474362, guid: 389dfd67c4fb1c446a9ac0fe39aba650, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239958636756677676, guid: 389dfd67c4fb1c446a9ac0fe39aba650, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239958636756696342, guid: 389dfd67c4fb1c446a9ac0fe39aba650, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1239958636774578862, guid: 389dfd67c4fb1c446a9ac0fe39aba650, type: 3}
       propertyPath: stopAction
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1239958636774578862, guid: 389dfd67c4fb1c446a9ac0fe39aba650, type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1239958636774578862, guid: 389dfd67c4fb1c446a9ac0fe39aba650, type: 3}
       propertyPath: TriggerModule.enabled
@@ -1097,7 +1110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1239958636774649328, guid: 389dfd67c4fb1c446a9ac0fe39aba650, type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1239958636774649328, guid: 389dfd67c4fb1c446a9ac0fe39aba650, type: 3}
       propertyPath: TriggerModule.enabled
@@ -1121,7 +1134,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1239958636774683774, guid: 389dfd67c4fb1c446a9ac0fe39aba650, type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1239958636774683774, guid: 389dfd67c4fb1c446a9ac0fe39aba650, type: 3}
       propertyPath: TriggerModule.enabled
@@ -1138,10 +1151,18 @@ PrefabInstance:
     - target: {fileID: 1239958636774683774, guid: 389dfd67c4fb1c446a9ac0fe39aba650, type: 3}
       propertyPath: RotationModule.y.minMaxState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540512238183369978, guid: 389dfd67c4fb1c446a9ac0fe39aba650, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7541061018945511150, guid: 389dfd67c4fb1c446a9ac0fe39aba650, type: 3}
       propertyPath: m_Name
       value: EF_Blood
+      objectReference: {fileID: 0}
+    - target: {fileID: 7541061018945511150, guid: 389dfd67c4fb1c446a9ac0fe39aba650, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7542795453742350076, guid: 389dfd67c4fb1c446a9ac0fe39aba650, type: 3}
       propertyPath: m_LocalScale.x
@@ -1209,7 +1230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7666035535861987772, guid: 389dfd67c4fb1c446a9ac0fe39aba650, type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7666035535861987772, guid: 389dfd67c4fb1c446a9ac0fe39aba650, type: 3}
       propertyPath: moveWithTransform
@@ -1241,7 +1262,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7666239209831186842, guid: 389dfd67c4fb1c446a9ac0fe39aba650, type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7666239209831186842, guid: 389dfd67c4fb1c446a9ac0fe39aba650, type: 3}
       propertyPath: TriggerModule.enabled

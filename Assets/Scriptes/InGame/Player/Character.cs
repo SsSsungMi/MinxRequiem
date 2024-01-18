@@ -11,21 +11,13 @@ public class Status
     public float speed;         // 이동 속도
     public float defense;       // 방어력
 
-    public float hp;              // 현재 Hp
-    public int recoveryHp;      // Hp 회복량
+    public float hp;            // 현재 Hp
+    public float recoveryHp;      // Hp 회복량
     public int maxHp;           // 최대 Hp
     public int minHp;           // 최소 Hp
 
-    public float mp;              // 현재 Mp
-    public int recoveryMp;      // Mp 회복량
-    public int maxMp;           // 최대 Mp
-    public int minMp;           // 최소 Mp
-
-    // 스킬 생기면 넣기
-    //public List<Skill> towerSkills;
     public int maxProperty = 9;
 }
-
 //-----------------------------------------------------
 
 // Scripte Desc:
@@ -40,7 +32,6 @@ public abstract class Character : MonoBehaviour, IHitable, IDeadable
     public Rigidbody2D rigid;
     public Vector2 inputVec;
 
-
     public virtual float Hp
     {
         get => status.hp;
@@ -53,21 +44,6 @@ public abstract class Character : MonoBehaviour, IHitable, IDeadable
             {
                 status.hp = status.minHp;
                 Dead();
-            }
-        }
-    }
-
-    public virtual float Mp
-    {
-        get => status.mp;
-        set
-        {
-            status.mp = value;
-            if (status.mp > status.maxMp)
-                status.mp = status.maxMp;
-            if (status.mp <= status.minMp)
-            {
-                status.mp = status.minMp;
             }
         }
     }
@@ -129,7 +105,6 @@ public abstract class Character : MonoBehaviour, IHitable, IDeadable
     {
         Hp -= damage;
     }
-
     public virtual void Dead()
     {
         status.speed = 0;

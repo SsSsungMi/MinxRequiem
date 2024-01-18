@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1239958636756252716}
   - component: {fileID: 1239958636774649328}
   - component: {fileID: 1239958636776560882}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BloodExplosionSpiky
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4838,7 +4838,7 @@ GameObject:
   - component: {fileID: 1239958636756336434}
   - component: {fileID: 1239958636774683774}
   - component: {fileID: 1239958636776579330}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9615,7 +9615,7 @@ GameObject:
   - component: {fileID: 1239958636756303338}
   - component: {fileID: 1239958636774578862}
   - component: {fileID: 1239958636776578508}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BigGore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14442,7 +14442,7 @@ GameObject:
   - component: {fileID: 7542795453742350076}
   - component: {fileID: 7666239209831186842}
   - component: {fileID: 7665173924618672696}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Droplets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19268,7 +19268,7 @@ GameObject:
   - component: {fileID: 7544193272286729636}
   - component: {fileID: 7666035535861987772}
   - component: {fileID: 7667350787686124510}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: EF_Blood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19302,7 +19302,7 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 1
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 1
   cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -19790,7 +19790,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    gravitySource: 1
+    gravitySource: 0
     maxNumParticles: 1000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0

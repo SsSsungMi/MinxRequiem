@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3193404884878319711}
   - component: {fileID: 3193404884858912841}
   - component: {fileID: 3193404884860594137}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4838,7 +4838,7 @@ GameObject:
   - component: {fileID: 3193404884858867861}
   - component: {fileID: 3193404884860538543}
   - component: {fileID: 6895750242331168503}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EF_GreenStar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9808,7 +9808,7 @@ GameObject:
   - component: {fileID: 3193404884878275525}
   - component: {fileID: 3193404884858858211}
   - component: {fileID: 3193404884860579181}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sparkles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14697,7 +14697,7 @@ GameObject:
   - component: {fileID: 7875024651690010895}
   - component: {fileID: 4762261895987481344}
   - component: {fileID: 6770741621639720449}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Nova
   m_TagString: Untagged
   m_Icon: {fileID: 0}

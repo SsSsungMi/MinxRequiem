@@ -26,7 +26,6 @@ public class Player : Character, IHitable, IDeadable
     GameObject hpBar;
     Image hpBarSprite;
 
-    public float recoverHp = 0.1f;
     public AudioClip deadSound;    // GameOver È¿°úÀ½
     public GameObject hitEffect;
     public CircleCollider2D magnetismArea;
@@ -66,7 +65,7 @@ public class Player : Character, IHitable, IDeadable
     {
         if (GameManager.instance.IsEnd == false)
         {
-            Hp += recoverHp * Time.deltaTime;
+            Hp += status.recoveryHp * Time.deltaTime;
         }
     }
 

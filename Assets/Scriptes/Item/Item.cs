@@ -21,8 +21,8 @@ using UnityEngine;
 // Magnetism  = 자기장 보석     = 욕망의 주문      = 더 넓은 범위의 아이템을 흡수한다.
 
 //// 추가 아이템 ----------------------------------------------------------
-//// GoldCoin = 골드 코인 = 운 테스트 = ! 당신의 운을 실험해보세요 ! 1000원 이내의 금액을 받을 수 있습니다.
-//// HpMeat = 묵직한 고기 = 美味한 맛! = Hp 를 30만큼 회복한다.
+//// GoldCoin = 골드 코인      = 운 테스트        = ! 당신의 운을 실험해보세요 ! 1000원 이내의 금액을 받을 수 있습니다.
+//// HpMeat   = 묵직한 고기    = 美味한 맛!       = Hp 를 30만큼 회복한다.
 //// ---------------------------------------------------------------
 //// 모든 아이템이 찬 뒤 레벨업이 끝까지 올라간 아이템이 있다면 2가지 타입중 하나가 등장합니다.
 
@@ -69,11 +69,11 @@ public class Item : MonoBehaviour
     public float[] damages;          // 증가될 데미지의 값
 
     public float[] attackDelay;      // 레벨 별 어택 딜레이
-    public float coAttackDelay;      // 어택 딜레이 코루틴 적용 용도의
+    public float coAttackDelay;      // 어택 딜레이 코루틴 적용 용도
 
     public GameObject itemEffect;    // 각 무기 아이템의 이펙트
 
-    private float curScale;           // 무기의 피격 범위
+    private float curScale;          // 현재 무기의 피격 범위
     public float CurScale
     {
         get => curScale;
@@ -84,7 +84,7 @@ public class Item : MonoBehaviour
                 curScale = maxScale;
         }
     }
-    public float maxScale;
+    public float maxScale;           // 각 아이템마다 다르게 지정
 
     public Coroutine curCo;
 
@@ -112,36 +112,31 @@ public class Item : MonoBehaviour
                 curDamage     = damages[level - 1];
             }
 
-            if (type == ITEM_TYPE.PASSIVE)
+            if (type == ITEM_TYPE.PASSIVE || level > 0)
             {
-                if (level > 0)
+                switch (name_type)
                 {
-                    switch (name_type)
-                    {
-                        case ITEMNAME_TYPE.ARMOR:
-                            GameManager.instance.player.Defense += 0.2f;
-                            break;
-                        case ITEMNAME_TYPE.HEALTH:
-                            GameManager.instance.player.recoverHp += 0.1f;  // 시간 당 증가량 올리기
-                            break;
-                        case ITEMNAME_TYPE.INCREASE:                    
-                            if (CurScale >= maxScale)
-                            {
-                                CurScale = maxScale;
-                            }
-                            CurScale += 0.1f;
-                            break;
-                        case ITEMNAME_TYPE.SPEED:
-                            GameManager.instance.player.Speed += 0.4f;
-                            break;
-                        case ITEMNAME_TYPE.MAGNETISM:
-                            GameManager.instance.player.magnetismArea.radius += 0.1f;
-                            break;
-                        case ITEMNAME_TYPE.GoldCoin:
-                            break;
-                        case ITEMNAME_TYPE.HpMeat:
-                            break;
-                    }
+                    case ITEMNAME_TYPE.ARMOR:
+                        GameManager.instance.player.Defense += 0.2f;
+                        break;
+                    case ITEMNAME_TYPE.HEALTH:
+                        GameManager.instance.player.status.recoveryHp += 0.1f;
+                        break;
+                    case ITEMNAME_TYPE.INCREASE:                    
+                        if (CurScale >= maxScale)
+                            CurScale = maxScale;
+                        CurScale += 0.1f;
+                        break;
+                    case ITEMNAME_TYPE.SPEED:
+                        GameManager.instance.player.Speed += 0.4f;
+                        break;
+                    case ITEMNAME_TYPE.MAGNETISM:
+                        GameManager.instance.player.magnetismArea.radius += 0.1f;
+                        break;
+                    case ITEMNAME_TYPE.GoldCoin:
+                        break;
+                    case ITEMNAME_TYPE.HpMeat:
+                        break;
                 }
             }
         }
@@ -162,7 +157,6 @@ public class Item : MonoBehaviour
                     effect.curItem = this;
                 }
             }
-            //ItemUiManager.instance.StartCoroutine(UseCo());
             ItemUiManager.instance.UseItem(this);
         }
         

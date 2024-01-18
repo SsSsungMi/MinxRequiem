@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3668494995111241449}
   - component: {fileID: 6224378299822865702}
   - component: {fileID: -1684982007485638506}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Tree_a
   m_TagString: Tree
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 6471229631357885381}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.08, y: 1.03, z: 0}
+  m_LocalPosition: {x: -2.111, y: 1.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -118,8 +118,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.2}
-  m_Size: {x: 0.98, y: 1.2}
+  m_Offset: {x: 0, y: -0.53}
+  m_Size: {x: 0.53, y: 0.67}
   m_Direction: 0
 --- !u!114 &-1684982007485638506
 MonoBehaviour:

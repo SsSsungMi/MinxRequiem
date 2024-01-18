@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]   // 직렬화
+[System.Serializable]   // 직렬화로 초기화
 public class SpawnData
 {
     [Header("Monster Data Info")]
@@ -20,7 +20,7 @@ public class SpawnData
     [Header("Drop Item")]
     public GameObject dropCoin;      // 몬스터가 각각 떨어트리는 코인
     public int maxCoin;              // 최대 코인
-    public GameObject dropExp;       // 몬스터가 각각 떨어트리는 경험치
+    public GameObject dropExp;      // 몬스터가 각각 떨어트리는 경험치
 }
 
 // Scripte Desc:

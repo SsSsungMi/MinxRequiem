@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class UnlockItem : MonoBehaviour
 {
     public List<GameObject> baseItemList;   // Content -> 하위에 있는 아이템 정보들
-    int maxItemList = 10;
+    int maxItemList = 12;
 
     private void Awake()
     {
