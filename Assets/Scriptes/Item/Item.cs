@@ -87,7 +87,7 @@ public class Item : MonoBehaviour
     public float maxScale;           // 각 아이템마다 다르게 지정
 
     public Coroutine curCo;
-
+    
     public void Awake()
     {
         curScale = 1f;

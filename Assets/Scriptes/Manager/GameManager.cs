@@ -154,7 +154,6 @@ public class GameManager : SingleTon<GameManager>
             if (Exp != 0)
             {
                 UpExp();
-                
             }
         } 
     }

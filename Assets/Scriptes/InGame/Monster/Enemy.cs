@@ -139,8 +139,7 @@ public class Enemy : MonoBehaviour, IHitable, IDeadable
     {
         for (int i = 0; i < maxCoin; i++)
         {
-            cloneCoin = Instantiate(coin);
-            cloneCoin.gameObject.transform.position = this.transform.position;
+            cloneCoin = Instantiate(coin, this.transform.position * 1f, Quaternion.identity);
         }
         for (int i = 0; i < maxexp; i++)
         {

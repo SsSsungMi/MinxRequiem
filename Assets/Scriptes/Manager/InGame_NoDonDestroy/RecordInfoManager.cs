@@ -75,9 +75,6 @@ public class RecordInfoManager : MonoBehaviour
 
     private void Update()
     {
-    //    if (ReTime >= GameManager.instance.maxPlayTime)
-    //        GameManager.instance.IsEnd = true;
-
         if (GameManager.instance.IsStart)
         {
             if (GameManager.instance.IsEnd)
